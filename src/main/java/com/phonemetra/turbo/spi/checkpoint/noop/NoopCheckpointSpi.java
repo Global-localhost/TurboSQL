@@ -1,0 +1,84 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.phonemetra.turbo.spi.checkpoint.noop;
+
+import com.phonemetra.turbo.TurboSQLLogger;
+import com.phonemetra.turbo.internal.util.typedef.internal.S;
+import com.phonemetra.turbo.internal.util.typedef.internal.U;
+import com.phonemetra.turbo.resources.LoggerResource;
+import com.phonemetra.turbo.spi.TurboSQLSpiAdapter;
+import com.phonemetra.turbo.spi.TurboSQLSpiException;
+import com.phonemetra.turbo.spi.TurboSQLSpiMultipleInstancesSupport;
+import com.phonemetra.turbo.spi.TurboSQLSpiNoop;
+import com.phonemetra.turbo.spi.checkpoint.CheckpointListener;
+import com.phonemetra.turbo.spi.checkpoint.CheckpointSpi;
+import org.jetbrains.annotations.Nullable;
+
+/**
+ * No-op implementation of {@link com.phonemetra.turbo.spi.checkpoint.CheckpointSpi}. This is default implementation
+ * since {@code 4.5.0} version.
+ */
+@TurboSQLSpiNoop
+@TurboSQLSpiMultipleInstancesSupport(true)
+public class NoopCheckpointSpi extends TurboSQLSpiAdapter implements CheckpointSpi {
+    /** Logger. */
+    @LoggerResource
+    private TurboSQLLogger log;
+
+    /** {@inheritDoc} */
+    @Override public void spiStart(@Nullable String turboSQLInstanceName) throws TurboSQLSpiException {
+        U.warn(log, "Checkpoints are disabled (to enable configure any GridCheckpointSpi implementation)");
+    }
+
+    /** {@inheritDoc} */
+    @Override public void spiStop() throws TurboSQLSpiException {
+        // No-op.
+    }
+
+    /** {@inheritDoc} */
+    @Nullable @Override public byte[] loadCheckpoint(String key) throws TurboSQLSpiException {
+        return null;
+    }
+
+    /** {@inheritDoc} */
+    @Override public boolean saveCheckpoint(String key, byte[] state, long timeout, boolean overwrite) {
+        return false;
+    }
+
+    /** {@inheritDoc} */
+    @Override public boolean removeCheckpoint(String key) {
+        return false;
+    }
+
+    /** {@inheritDoc} */
+    @Override public void setCheckpointListener(CheckpointListener lsnr) {
+        // No-op.
+    }
+
+    /** {@inheritDoc} */
+    @Override public NoopCheckpointSpi setName(String name) {
+        super.setName(name);
+
+        return this;
+    }
+
+    /** {@inheritDoc} */
+    @Override public String toString() {
+        return S.toString(NoopCheckpointSpi.class, this);
+    }
+}
