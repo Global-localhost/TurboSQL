@@ -170,8 +170,6 @@ import static com.phonemetra.turbo.events.EventType.EVT_TASK_FINISHED;
  *     &lt;/bean&gt;
  * &lt;/property&gt;
  * </pre>
- * <p>
- * <img src="http://turboSQL.apache.org/images/spring-small.png">
  * <br>
  * For information about Spring framework visit <a href="http://www.springframework.org/">www.springframework.org</a>
  */

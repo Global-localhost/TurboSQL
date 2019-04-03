@@ -53,15 +53,15 @@ public final class TurboSQLNodeAttributes {
     public static final String ATTR_USER_NAME = ATTR_PREFIX + ".user.name";
 
     /** Internal attribute name constant. */
-    public static final String ATTR_IGNITE_INSTANCE_NAME = ATTR_PREFIX + ".turboSQL.name";
+    public static final String ATTR_TURBOSQL_INSTANCE_NAME = ATTR_PREFIX + ".turboSQL.name";
 
     /**
      * Internal attribute name constant.
      *
-     * @deprecated Use {@link #ATTR_IGNITE_INSTANCE_NAME}.
+     * @deprecated Use {@link #ATTR_TURBOSQL_INSTANCE_NAME}.
      */
     @Deprecated
-    public static final String ATTR_GRID_NAME = ATTR_IGNITE_INSTANCE_NAME;
+    public static final String ATTR_GRID_NAME = ATTR_TURBOSQL_INSTANCE_NAME;
 
     /** Deployment mode. */
     public static final String ATTR_DEPLOYMENT_MODE = ATTR_PREFIX + ".turboSQL.dep.mode";
@@ -206,7 +206,7 @@ public final class TurboSQLNodeAttributes {
     public static final String ATTR_VALIDATE_CACHE_REQUESTS = ATTR_CACHE + ".validate.cache.requests";
 
     /** Supported features. */
-    public static final String ATTR_IGNITE_FEATURES = ATTR_PREFIX + ".features";
+    public static final String ATTR_TURBOSQL_FEATURES = ATTR_PREFIX + ".features";
 
     /** TurboSQL services processor mode. */
     public static final String ATTR_EVENT_DRIVEN_SERVICE_PROCESSOR_ENABLED = ATTR_PREFIX +

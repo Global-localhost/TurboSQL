@@ -244,8 +244,8 @@ import static com.phonemetra.turbo.internal.TurboSQLNodeAttributes.ATTR_DATA_STR
 import static com.phonemetra.turbo.internal.TurboSQLNodeAttributes.ATTR_DEPLOYMENT_MODE;
 import static com.phonemetra.turbo.internal.TurboSQLNodeAttributes.ATTR_DYNAMIC_CACHE_START_ROLLBACK_SUPPORTED;
 import static com.phonemetra.turbo.internal.TurboSQLNodeAttributes.ATTR_EVENT_DRIVEN_SERVICE_PROCESSOR_ENABLED;
-import static com.phonemetra.turbo.internal.TurboSQLNodeAttributes.ATTR_IGNITE_FEATURES;
-import static com.phonemetra.turbo.internal.TurboSQLNodeAttributes.ATTR_IGNITE_INSTANCE_NAME;
+import static com.phonemetra.turbo.internal.TurboSQLNodeAttributes.ATTR_TURBOSQL_FEATURES;
+import static com.phonemetra.turbo.internal.TurboSQLNodeAttributes.ATTR_TURBOSQL_INSTANCE_NAME;
 import static com.phonemetra.turbo.internal.TurboSQLNodeAttributes.ATTR_IPS;
 import static com.phonemetra.turbo.internal.TurboSQLNodeAttributes.ATTR_JIT_NAME;
 import static com.phonemetra.turbo.internal.TurboSQLNodeAttributes.ATTR_JMX_PORT;
@@ -291,7 +291,7 @@ public class TurboSQLKernal implements TurboSQLEx, TurboSQLMXBean, Externalizabl
     private static final long serialVersionUID = 0L;
 
     /** TurboSQL site that is shown in log messages. */
-    public static final String SITE = "turboSQL.apache.org";
+    public static final String SITE = "phonemetra.com/turbosql";
 
     /** System line separator. */
     private static final String NL = U.nl();
@@ -1588,7 +1588,7 @@ public class TurboSQLKernal implements TurboSQLEx, TurboSQLMXBean, Externalizabl
         }
 
         add(ATTR_USER_NAME, System.getProperty("user.name"));
-        add(ATTR_IGNITE_INSTANCE_NAME, turboSQLInstanceName);
+        add(ATTR_TURBOSQL_INSTANCE_NAME, turboSQLInstanceName);
 
         add(ATTR_PEER_CLASSLOADING, cfg.isPeerClassLoadingEnabled());
         add(ATTR_DEPLOYMENT_MODE, cfg.getDeploymentMode());
@@ -1655,7 +1655,7 @@ public class TurboSQLKernal implements TurboSQLEx, TurboSQLMXBean, Externalizabl
         add(ATTR_TX_CONFIG, cfg.getTransactionConfiguration());
 
         // Supported features.
-        add(ATTR_IGNITE_FEATURES, TurboSQLFeatures.allFeatures());
+        add(ATTR_TURBOSQL_FEATURES, TurboSQLFeatures.allFeatures());
 
         // Stick in SPI versions and classes attributes.
         addSpiAttributes(cfg.getCollisionSpi());

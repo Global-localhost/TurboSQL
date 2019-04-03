@@ -548,12 +548,12 @@ public abstract class TurboSQLUtils {
     private static Method toStringMtd;
 
     /** Empty local TurboSQL name. */
-    public static final String LOC_IGNITE_NAME_EMPTY = new String();
+    public static final String LOC_TURBOSQL_NAME_EMPTY = new String();
 
     /** Local TurboSQL name thread local. */
-    private static final ThreadLocal<String> LOC_IGNITE_NAME = new ThreadLocal<String>() {
+    private static final ThreadLocal<String> LOC_TURBOSQL_NAME = new ThreadLocal<String>() {
         @Override protected String initialValue() {
-            return LOC_IGNITE_NAME_EMPTY;
+            return LOC_TURBOSQL_NAME_EMPTY;
         }
     };
 
@@ -10191,7 +10191,7 @@ public abstract class TurboSQLUtils {
      * @return Current TurboSQL name.
      */
     @Nullable public static String getCurrentTurboSQLName() {
-        return LOC_IGNITE_NAME.get();
+        return LOC_TURBOSQL_NAME.get();
     }
 
     /**
@@ -10202,7 +10202,7 @@ public abstract class TurboSQLUtils {
      */
     @SuppressWarnings("StringEquality")
     public static boolean isCurrentTurboSQLNameSet(@Nullable String name) {
-        return name != LOC_IGNITE_NAME_EMPTY;
+        return name != LOC_TURBOSQL_NAME_EMPTY;
     }
 
     /**
@@ -10213,10 +10213,10 @@ public abstract class TurboSQLUtils {
      */
     @SuppressWarnings("StringEquality")
     @Nullable public static String setCurrentTurboSQLName(@Nullable String newName) {
-        String oldName = LOC_IGNITE_NAME.get();
+        String oldName = LOC_TURBOSQL_NAME.get();
 
         if (oldName != newName)
-            LOC_IGNITE_NAME.set(newName);
+            LOC_TURBOSQL_NAME.set(newName);
 
         return oldName;
     }
@@ -10230,7 +10230,7 @@ public abstract class TurboSQLUtils {
     @SuppressWarnings("StringEquality")
     public static void restoreOldTurboSQLName(@Nullable String oldName, @Nullable String curName) {
         if (oldName != curName)
-            LOC_IGNITE_NAME.set(oldName);
+            LOC_TURBOSQL_NAME.set(oldName);
     }
 
     /**

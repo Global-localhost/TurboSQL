@@ -22,7 +22,7 @@ import com.phonemetra.turbo.cluster.ClusterNode;
 import com.phonemetra.turbo.spi.communication.tcp.TcpCommunicationSpi;
 import com.phonemetra.turbo.spi.communication.tcp.messages.HandshakeWaitMessage;
 
-import static com.phonemetra.turbo.internal.TurboSQLNodeAttributes.ATTR_IGNITE_FEATURES;
+import static com.phonemetra.turbo.internal.TurboSQLNodeAttributes.ATTR_TURBOSQL_FEATURES;
 
 /**
  * Defines supported features and check its on other nodes.
@@ -71,7 +71,7 @@ public enum TurboSQLFeatures {
      * @return {@code True} if feature is declared to be supported by remote node.
      */
     public static boolean nodeSupports(ClusterNode clusterNode, TurboSQLFeatures feature) {
-        final byte[] features = clusterNode.attribute(ATTR_IGNITE_FEATURES);
+        final byte[] features = clusterNode.attribute(ATTR_TURBOSQL_FEATURES);
 
         if (features == null)
             return false;

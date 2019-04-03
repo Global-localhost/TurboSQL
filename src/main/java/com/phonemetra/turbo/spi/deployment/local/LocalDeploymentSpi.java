@@ -72,7 +72,7 @@ public class LocalDeploymentSpi extends TurboSQLSpiAdapter implements Deployment
     public static final String IGNITE_DEPLOYMENT_ADDITIONAL_CHECK = "IGNITE.DEPLOYMENT.ADDITIONAL.CHECK";
 
     /** Value for additional check on resources removal. */
-    private static final boolean ENABLE_IGNITE_DEPLOYMENT_ADDITIONAL_CHECK =
+    private static final boolean ENABLE_TURBOSQL_DEPLOYMENT_ADDITIONAL_CHECK =
         TurboSQLSystemProperties.getBoolean(IGNITE_DEPLOYMENT_ADDITIONAL_CHECK);
 
     /** */
@@ -341,7 +341,7 @@ public class LocalDeploymentSpi extends TurboSQLSpiAdapter implements Deployment
                     // Resources map contains two entries for class with task name(alias).
                     if (entry.getKey().equals(entry.getValue()) && isResourceExist(ldr, entry.getKey()) &&
                         !U.hasParent(clsLdrToIgnore, ldr) &&
-                        (!ENABLE_IGNITE_DEPLOYMENT_ADDITIONAL_CHECK || clsLdrRsrcs.containsKey(entry.getKey())) &&
+                        (!ENABLE_TURBOSQL_DEPLOYMENT_ADDITIONAL_CHECK || clsLdrRsrcs.containsKey(entry.getKey())) &&
                         ldrRsrcs.remove(ldr, clsLdrRsrcs)) {
                         // Add class loaders in collection to notify listener outside synchronization block.
                         rmvClsLdrs.add(ldr);

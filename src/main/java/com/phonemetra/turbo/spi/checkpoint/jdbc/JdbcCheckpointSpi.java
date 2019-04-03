@@ -105,8 +105,6 @@ import com.phonemetra.turbo.spi.checkpoint.CheckpointSpi;
  *     ...
  * &lt;/bean&gt;
  * </pre>
- * <p>
- * <img src="http://turboSQL.apache.org/images/spring-small.png">
  * <br>
  * For information about Spring framework visit <a href="http://www.springframework.org/">www.springframework.org</a>
  */
