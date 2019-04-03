@@ -16,3 +16,8 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+
+## Getting Started
+
+For information on how to get started with <b>TurboSQL</b>, please visit:
