@@ -20,4 +20,4 @@
 
 ## Getting Started
 
-For information on how to get started with <b>TurboSQL</b>, please visit:
+For information on how to get started with <b>TurboSQL™</b>, please visit:
