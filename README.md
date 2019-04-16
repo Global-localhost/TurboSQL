@@ -1,4 +1,5 @@
 <h1 align="center">TurboSQL™</h1>
+
 [![Build Status](https://travis-ci.org/Phonemetra/TurboSQL.svg?branch=master)](https://travis-ci.org/Phonemetra/TurboSQL)
 [![License](https://img.shields.io/hexpm/l/plug.svg)](https://github.com/Phonemetra/TurboSQL/blog/master/LICENSE)
 ## License
